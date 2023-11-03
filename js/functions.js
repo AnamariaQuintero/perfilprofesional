@@ -69,3 +69,80 @@ console.log ("División = " + divi.toFixed(2));
 // modulo
 var modulo = number_one % number_two;
 console.log ("Módulo = " + modulo);
+
+// operadores logicos y estructuiras condicionales (inverse, incremento y decremento)
+// and && con if - Ampersand
+var bool = true;
+var numeric = 10;
+if(!bool && numeric == 10){ //tres iguales compara el dato y el valor 
+    console.log("ENTRA IF");
+}
+else{
+    console.log("ENTRA ELSE");
+}
+// ORR || con if 
+if(!bool || numeric ==7){
+    console.log("ENTRA IF");
+    numeric+=3;
+}
+else{
+    console.log("ENTRA ELSE");
+    numeric--;
+}
+console.log(numeric);
+
+// FOR
+for(let j = 0; j<array_text.length; j++){
+    console.log(array_text[j] + (j+1));
+}
+
+// WHILE
+let a=0;
+while(a<array_text.length){
+    console.log(array_text[a] + (a+1));
+    a++;
+}
+
+//DO WHILE
+let m = 0;
+do{
+    console.log(array_text[m] + (m+1));
+    m++;
+}while(m<array_text.length);
+
+// FUNCIONES Y EVENTOS 
+function load_page(){
+    alert("LA PAGINA SE HA CARGADO CORRECTAMENTE")
+}
+
+function change_Color(){
+    document.body.style.backgroundColor = "red"
+    document.body.style.color = "#fff"
+}
+
+const clear_color = document.querySelector("#clear_color");
+
+clear_color.addEventListener("dblclick", () => {
+    document.body.style.backgroundColor = "#fff"
+    document.body.style.color = "#000"
+});
+
+// REGISTRO FORMULARIO 
+const form_register = document.getElementById("form_register");
+const nombres       = document.getElementById("nombres");
+const apellidos     = document.getElementById("apellidos");
+const information   = document.getElementById("information");
+
+form_register.addEventListener("submit", name_event => {
+    name_event.preventDefault();
+    let info ="";
+    // console.log(nombres.value);
+    if(nombres.value.length <= 2 || apellidos.value.length <=2 ){ //value almacena el dato
+        info += "NOMBRES Y/O APELLIDOS INVALIDOS";
+        information.style.color = "red";
+    }
+    else{
+        alert(nombres.value + "" + apellidos.value);
+    }
+    information.innerText = info;
+});
