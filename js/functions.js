@@ -51,7 +51,7 @@ var array_mul = [
     {name: "Samuel", last_name: "Quintero", age:"3"},    
     {name: "Matias", last_name: "Gaona", age:"8"},    
     {name: "Fer", last_name: "Gomez", age:"17"}
-]
+];
 
 // ############### operadores básicos
 // suma
@@ -112,13 +112,34 @@ do{
 
 // FUNCIONES Y EVENTOS 
 function load_page(){
-    alert("LA PAGINA SE HA CARGADO CORRECTAMENTE")
+    document.getElementById("nombres").focus();
+    document.getElementById("apellidos").disabled = true;
+    let date = new Date();
+    console.log(date.getMinutes());
+    for (let j=0; j<array_mul.length; j++)
+    console.log(array_mul[j].last_name);
+}
+
+function validate(){
+    let nombres = document.getElementById("nombres").value;
+    let nombres_style = document.getElementById("nombres");
+    // console.log(nombres);
+    if (nombres.length > 2){
+        nombres_style.style.border = "2px solid green";
+        document.getElementById("apellidos").disabled = false;
+        document.getElementById("apellidos").focus();
+        document.getElementById("nombres").value = "";
+        alert (nombres.split(" "));
+
+    }
 }
 
 function change_Color(){
     document.body.style.backgroundColor = "red"
     document.body.style.color = "#fff"
 }
+
+
 
 const clear_color = document.querySelector("#clear_color");
 
@@ -146,3 +167,4 @@ form_register.addEventListener("submit", name_event => {
     }
     information.innerText = info;
 });
+
